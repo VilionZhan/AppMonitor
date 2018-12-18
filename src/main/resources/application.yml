@@ -1,0 +1,71 @@
+#终端点配置
+#将所有将全部端口开启（include: "*"）,默认只开启了info, health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+server:
+  port: 8324
+
+#应用自定义信息配置
+info:
+  app:
+    name: spring-boot-acuator-demo
+    tel: 18700000000
+    email: 1163225853@qq.com
+
+#thymeleaf模板引擎
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: utf-8
+    cache: false
+    mode: HTML
+    servlet:
+      content-type: text/html
+#数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #启动监听、日志、防注入的功能
+      filters: stat,log4j,wall
+      #初始连接数
+      initial-size: 5
+      #最大激活数
+      max-active: 50
+      #最大等待时间
+      max-wait: 3000
+      #是否启用非公平锁
+      use-unfair-lock: true
+      #mysql 用 false | oracle 用 true
+      pool-prepared-statements: false
+
+#mybatis
+mybatis:
+  type-aliases-package: appMonitor.entity
+  mapper-locations: classpath:mapper/*.xml
+mapper:
+  not-empty: false
+  identity: MYSQL
+
+#logger打印
+#logging:
+#  level:
+#   org:
+#     springframework: info
+
+#logback
+logging:
+  level:
+    org.springframework.web: info,CONSOLE
+  config: classpath:logback.xml
