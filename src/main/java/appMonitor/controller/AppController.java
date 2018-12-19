@@ -28,10 +28,19 @@ public class AppController {
     //返回系统首页
     @RequestMapping(value = "/content",method = RequestMethod.POST)
     public String content(){
-        System.out.println("content..........................");
         return "common/content";
     }
+    //返回系统首页
+    @RequestMapping(value = "/echart",method = RequestMethod.POST)
+    public String echart(){
+        return "common/echart";
+    }
 
+    //返回系统信息
+    @RequestMapping(value = "/System",method = RequestMethod.POST)
+    public String System(){
+        return "common/System";
+    }
     //启动应用
     /*@RequestMapping(value = "/content",method = RequestMethod.POST)
     public boolean content(){
