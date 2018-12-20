@@ -15,13 +15,13 @@ public class Application {
 	private Integer id;
 
 	//应用
-	private String ip;
+	private String applicationip;
 
 	//应用端口
-	private String port;
+	private String applicationport;
 
 	//应用名称
-	private String appname;
+	private String applicationname;
 
 	//创建时间
 	private String createDate;
@@ -39,28 +39,28 @@ public class Application {
 		this.id = id;
 	}
 
-	public String getIp() {
-		return ip;
+	public String getApplicationip() {
+		return applicationip;
 	}
 
-	public void setIp(String ip) {
-		this.ip = ip;
+	public void setApplicationip(String applicationip) {
+		this.applicationip = applicationip;
 	}
 
-	public String getPort() {
-		return port;
+	public String getApplicationport() {
+		return applicationport;
 	}
 
-	public void setPort(String port) {
-		this.port = port;
+	public void setApplicationport(String applicationport) {
+		this.applicationport = applicationport;
 	}
 
-	public String getAppname() {
-		return appname;
+	public String getApplicationname() {
+		return applicationname;
 	}
 
-	public void setAppname(String appname) {
-		this.appname = appname;
+	public void setApplicationname(String applicationname) {
+		this.applicationname = applicationname;
 	}
 
 	public String getCreateDate() {
@@ -81,7 +81,7 @@ public class Application {
 
 	@Override
 	public String toString() {
-		return "AppInfo{" + "id=" + id + ", ip='" + ip + '\'' + ", port='" + port + '\'' + ", appname='" + appname + '\'' + ", createDate='" + createDate + '\'' + ", createAuthor='" + createAuthor + '\'' + '}';
+		return "Application{" + "id=" + id + ", applicationip='" + applicationip + '\'' + ", applicationport='" + applicationport + '\'' + ", applicationname='" + applicationname + '\'' + ", createDate='" + createDate + '\'' + ", createAuthor='" + createAuthor + '\'' + '}';
 	}
 }
 

@@ -1,5 +1,6 @@
 package appMonitor.controller;
 
+import appMonitor.common.AjaxResult;
 import appMonitor.service.LoginService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -26,12 +27,12 @@ public class LoginController {
 
 
 	/**
-	 * 登陆页面
+	 * 登陆
 	 */
 	@RequestMapping("/login")
-	public  String   login(HttpServletRequest request, HttpServletResponse response){
-		/*return  loginService.login(request,response);*/
-		return "login";
+	public  AjaxResult   login(HttpServletRequest request, HttpServletResponse response){
+		return  loginService.login(request,response);
+//		return "login";
 	}
 	/**
 	 * 检验前台数据
@@ -52,5 +53,8 @@ public class LoginController {
 		return "app/main";
 	}
 
+	@RequestMapping("/logout")
+	public AjaxResult logout(){
 
+	}
 }

@@ -1,8 +1,5 @@
 package appMonitor.Utils;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -10,8 +7,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.io.InputStream;
 /**
- * httpclient 远程条用其他服务
+ * httpclient 远程调用其他服务
  * @author zhangbendong
  *
  */

@@ -1,7 +1,6 @@
 package appMonitor.controller;
 
 import appMonitor.Utils.HttpTogetAppInfo;
-import appMonitor.dao.ApplicationDaoImp;
 import appMonitor.entity.Application;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

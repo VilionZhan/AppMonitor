@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="IE=edge"/>
@@ -20,39 +20,43 @@
             </span>
         </div>
         <br>  <br>
-        <div class="applicationInstall" style="">
-            <form id="appregister" action="installApp" method="post">
+        <div class="applicationInstall" >
+            <form id="appregisterinfo" >
                 <table cellpadding="20px" cellspacing="10px">
                     <tr>
                         <td><label >应用名称</label></td>
-                        <td><input type="text" id="applicationName" onblur="check()" name="applicationName" style="border-radius: 1px;"></input></td>
+                        <td><input type="text" name="applicationname" style="border-radius: 1px;"/></td>
                         <td><label style="padding-left: 20px">应用ip地址</label></td>
-                        <td><input type="text" id="applicationIp" name="applicationIp" style="border-radius: 1px;"></input></td>
+                        <td><input type="text"  name="applicationip" style="border-radius: 1px;"/></td>
                         <td><label style="padding-left: 20px ">应用端口</label></td>
-                        <td><input type="text" id="applicationPort" name="applicationPort" style="border-radius: 1px;"></input></td>
+                        <td><input type="text"  name="applicationport" style="border-radius: 1px;"/></td>
                     </tr>
-                   <!--
-                    <tr>
-                        <td><label>应用ip地址</label></td>
-                        <td><input type="text" id="applicationIp" name="applicationIp"></input></td>
-                    </tr>
-                    <tr>
-                        <td><label>应用端口</label></td>
-                        <td><input type="text" id="applicationPort" name="applicationPort"></input></td>
-                    </tr>
-                    -->
                 </table>
             </form>
         </div>
         <br><br><br><br><br><br>
         <div class="registerApp" style="padding-left: 300px">
-            <button id="registerFun" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">注册</button>
+            <button onclick="registerApp()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">注册</button>
             <button type="button" class="btn btn-default" style="text-align: center ;background-color: #88A4C8">取消</button>
         </div>
     </div>
     <script type="text/javascript">
         function registerApp () {
-            $("#appregister")
+                $.ajax({
+                    async:false,
+                    type:"POST",
+                    url:'/installApp',
+                    dataType:"text",
+                    data:JSON.stringify($('#appregisterinfo').serialize()),
+                    contentType:'application/json',
+                    success : function(req) {
+                        alert("注册成功！");
+                    },
+                    error : function(req) {
+                       alert("注册失败！");
+                    }
+                })
+
         }
     </script>
 </body>

@@ -1,7 +1,7 @@
 package appMonitor.service;
 
 import appMonitor.dao.ApplicationDao;
-import appMonitor.entity.AppInfo;
+import appMonitor.entity.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class ApplicationService {
      * @param appInfo
      * @return
      */
-    public boolean AppInsatalled(AppInfo appInfo){
+    public boolean AppInsatalled(Application appInfo){
         boolean result = true;
         List list =  applicationDao.selectApplicationByip(appInfo);
         if (list.size()>0){
