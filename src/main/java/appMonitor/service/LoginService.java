@@ -1,6 +1,8 @@
 package appMonitor.service;
 
 import appMonitor.Utils.AppUtil;
+import appMonitor.Utils.CookieUtil;
+import appMonitor.Utils.MD5Util;
 import appMonitor.common.AjaxResult;
 import appMonitor.common.Constant;
 import appMonitor.entity.ParamData;
@@ -20,7 +22,7 @@ public class LoginService {
 
     public AjaxResult login(HttpServletRequest request, HttpServletResponse response){
         String verifyCode = (String) request.getSession().getAttribute(Constant.VERIFY_CODE);
-        String result =null;
+        String result ="OK";
         ParamData params = new ParamData();
         String vcode = params.getString("vcode");
         if (params.containsKey("vcode") && (StringUtils.isEmpty(verifyCode) || !verifyCode.equalsIgnoreCase(vcode))) {
@@ -37,5 +39,23 @@ public class LoginService {
             }
         }
         return AppUtil.returnObj(result);
+    }
+
+    public AjaxResult logout(HttpServletResponse response, HttpServletRequest request) {
+        String sessionId = CookieUtil.get(Constant.SESSION_IDENTITY_KEY, request);
+
+        if (sessionId!=null && !"".equals(sessionId) ) {
+            CookieUtil.delete(Constant.SESSION_IDENTITY_KEY, request, response);
+        }
+        return AppUtil.returnObj(null);
+    }
+
+    private String getSessionId(String userName, String ip) {
+        String str = userName + "_" + System.currentTimeMillis() + "_" + ip;
+        try {
+            return MD5Util.encrypt(str);
+        } catch (Exception e) {
+            return "生成token错误";
+        }
     }
 }
