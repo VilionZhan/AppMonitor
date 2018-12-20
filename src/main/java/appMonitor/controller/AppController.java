@@ -31,10 +31,11 @@ public class AppController {
         return "common/content";
     }
     //返回系统首页
-    @RequestMapping(value = "/echart",method = RequestMethod.POST)
+   /* @RequestMapping(value = "/echart",method = RequestMethod.POST)
     public String echart(){
+        log.info("echart====================================");
         return "common/echart";
-    }
+    }*/
 
     //返回系统信息
     @RequestMapping(value = "/System",method = RequestMethod.POST)

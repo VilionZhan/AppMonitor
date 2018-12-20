@@ -21,7 +21,7 @@
         </div>
         <br>  <br>
         <div class="applicationInstall" style="">
-            <form action="installApp" method="post">
+            <form id="appregister" action="installApp" method="post">
                 <table cellpadding="20px" cellspacing="10px">
                     <tr>
                         <td><label >应用名称</label></td>
@@ -46,11 +46,14 @@
         </div>
         <br><br><br><br><br><br>
         <div class="registerApp" style="padding-left: 300px">
-            <button type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">注册</button>
+            <button id="registerFun" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">注册</button>
             <button type="button" class="btn btn-default" style="text-align: center ;background-color: #88A4C8">取消</button>
         </div>
     </div>
     <script type="text/javascript">
+        function registerApp () {
+            $("#appregister")
+        }
     </script>
 </body>
 </html>
