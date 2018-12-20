@@ -1,28 +1,27 @@
 package appMonitor.dao;
 
-import appMonitor.entity.AppInfo;
-
+import appMonitor.entity.Application;
 import java.util.List;
 
 public interface ApplicationDao {
-    //新增应用
-    public int insert(AppInfo appInfo);
+    //新增应用;
+    public int insert(Application Application);
 
     //删除应用
-    public  int deleteAppByip(AppInfo appInfo);
+    public  int deleteAppByip(Application Application);
 
     //修改应用信息
-    public int updateApplication(AppInfo appInfo);
+    public int updateApplication(Application Application);
 
     //查询应用
-    public List  selectApplicationByip(AppInfo appInfo);
+    public List  selectApplicationByip(Application Application);
 
     //查询端口是否存在
-    public int selectApplicationByport(AppInfo appInfo);
+    public int selectApplicationByport(Application Application);
 
     //查询已注册应用
-    public List selectApplication(AppInfo appInfo);
+    public List selectApplication(Application Application);
 
     //用户登陆
-    public List selectUserInfo(AppInfo appInfo);
+    public List selectUserInfo(Application Application);
 }
