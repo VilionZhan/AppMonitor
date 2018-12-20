@@ -4,6 +4,7 @@ public class StringUtils {
 
     public static void main(String[] args){
 
-        System.out.println("hahahaha!");
+        System.out.println("hahaha!");
+        System.out.println("hahahahahaha!");
     }
 }
