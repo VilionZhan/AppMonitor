@@ -1,7 +1,7 @@
 package appMonitor.service;
 
 import appMonitor.dao.ApplicationDaoImp;
-import appMonitor.entity.AppInfo;
+import appMonitor.entity.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +20,12 @@ public class LoginService {
         List list = new ArrayList();
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        AppInfo appInfo = new AppInfo();
-        if (name != null || !"".equals(name) && password != null || !"".equals(password)){
-            appInfo.setUserName(name);
-            appInfo.setPassword(password);
-            list = applicationDaoImp.selectUserInfo(appInfo);
-        }
+        Application appInfo = new Application();
+//        if (name != null || !"".equals(name) && password != null || !"".equals(password)){
+////            appInfo.setUserName(name);
+////            appInfo.setPassword(password);
+//            list = applicationDaoImp.selectUserInfo(appInfo);
+//        }
         return list.toString();
     }
 }
