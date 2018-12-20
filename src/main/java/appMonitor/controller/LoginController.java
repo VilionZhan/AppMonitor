@@ -26,14 +26,22 @@ public class LoginController {
 	private LoginService loginService;
 
 
+
+	/**
+	 * 登陆页面
+	 */
+	@RequestMapping("/login")
+	public  String   login(HttpServletRequest request, HttpServletResponse response){
+		return "login";
+	}
 	/**
 	 * 登陆
 	 */
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public  AjaxResult   login(HttpServletRequest request, HttpServletResponse response){
-		return  loginService.login(request,response);
-//		return "login";
-	}
+//		return  loginService.login(request,response);
+		return "login";
+	}*/
 	/**
 	 * 检验前台数据
 	 * @return
@@ -54,7 +62,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("/logout")
-	public AjaxResult logout(){
-
+	public AjaxResult logout(HttpServletRequest request, HttpServletResponse response){
+		return loginService.logout(response, request);
 	}
 }
