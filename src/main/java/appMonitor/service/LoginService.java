@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class LoginService {
     @Autowired
-    private   ApplicationDaoImp applicationDaoImp;
+    private ApplicationDaoImp applicationDaoImp;
 
     public String login(HttpServletRequest request, HttpServletResponse response){
         List list = new ArrayList();
