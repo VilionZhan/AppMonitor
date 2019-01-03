@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="appMonitor.dao.ApplicationDao">
+
+    <insert id="insert" parameterType="AppInfo" useGeneratedKeys="true">
+        INSERT INTO appinfo(ip, port, applicationName) VALUES (#{ip},#{port},#{applicationName});
+    </insert>
+
+    <select id="selectApplicationByip" parameterType="AppInfo" resultType="List">
+          SELECT * from appinfo WHERE ip = #{ip};
+    </select>
+
+    <select id="selectApplicationByport" parameterType="AppInfo" resultType="List">
+        SELECT * from appinfo WHERE port = #{port};
+    </select>
+
+    <select id="selectUserInfo" parameterType="AppInfo" resultType="List">
+        SELECT * from appinfo WHERE userName = #{userName} and password = #{password};
+    </select>
+
+    <select id="selectApplication" parameterType="AppInfo" resultType="List">
+        SELECT * from appinfo WHERE  ip = #{ip} and port = #{port};
+    </select>
+
+    <update id="updateApplication" parameterType="AppInfo">
+        upadte appinfo SET ip = #{ip},port = #{port} WHERE ip = #{ip},port = #{port};
+    </update>
+
+    <delete id="deleteAppByip"  parameterType="AppInfo" >
+        delete from appinfo where ip = #{ip};
+    </delete>
+
+</mapper>

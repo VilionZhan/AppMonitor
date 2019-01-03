@@ -20,6 +20,17 @@ public class LoginService {
     @Autowired
     private ApplicationDaoImp applicationDaoImp;
 
+
+    public String login(HttpServletRequest request, HttpServletResponse response){
+        List list = new ArrayList();
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        AppInfo appInfo = new AppInfo();
+        if (name != null || !"".equals(name) && password != null || !"".equals(password)){
+            appInfo.setUserName(name);
+            appInfo.setPassword(password);
+            list = applicationDaoImp.selectUserInfo(appInfo);
+
     public AjaxResult login(HttpServletRequest request, HttpServletResponse response){
         String verifyCode = (String) request.getSession().getAttribute(Constant.VERIFY_CODE);
         String result ="OK";
