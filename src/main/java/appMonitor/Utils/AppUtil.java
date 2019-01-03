@@ -1,7 +1,9 @@
-/*
+
 package appMonitor.Utils;
 
-import appMonitor.entity.AjaxResult;
+import appMonitor.common.AjaxResult;
+import appMonitor.entity.ParamData;
+import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -13,21 +15,20 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-*/
 /**
  * 参数工具
  * @author zbd
  * @date 2018年11月11日
- *//*
+ */
 
 public class AppUtil {
-    */
+
 /**
      * 检验参数
      * @param key
      * @param data
      * @return
-     *//*
+     */
 
     public static String checkParam(ParamData params, String[] args) {
         String result = null;
@@ -48,12 +49,12 @@ public class AppUtil {
         return result;
     }
 
-    */
+
 /**
      * 封装接口返回数据
      * @param result
      * @return
-     *//*
+     */
 
     public static AjaxResult returnObj(String result) {
         if (StringUtils.isEmpty(result)) {
@@ -62,13 +63,13 @@ public class AppUtil {
         return new AjaxResult(result);
     }
 
-    */
+
 /**
      * 封装带数据的返回
      * @param result
      * @param data
      * @return
-     *//*
+     */
 
     public static AjaxResult returnObj(String result, Object data) {
         if (StringUtils.isEmpty(result)) {
@@ -77,13 +78,13 @@ public class AppUtil {
         return new AjaxResult(result);
     }
 
-    */
+
 /**
      * 封装带集合的返回
      * @param result
      * @param T
      * @return
-     *//*
+     */
 
     public static <T> AjaxResult returnList(String result, List<T> list) {
         if (StringUtils.isEmpty(result)) {
@@ -93,37 +94,37 @@ public class AppUtil {
         return new AjaxResult(0, result, list);
     }
 
-    */
+
 /**
      * 封装分页查询返回
      * @param result
      * @param list
      * @return
-     *//*
+     */
 
-    public static <T> AjaxResult returnPage(String result, List<T> list) {
+   /* public static <T> AjaxResult returnPage(String result, List<T> list) {
         return returnObj(result, new PageAjax<T>(list));
-    }
+    }*/
 
-    */
+
 /**
      * 封装分页查询返回
      * @param list
      * @return
-     *//*
+     */
 
-    public static <T> PageAjax<T> returnPage(List<T> list){
+/*    public static <T> PageAjax<T> returnPage(List<T> list){
         return new PageAjax<T>(list);
-    }
+    }*/
 
-    */
+
 /**
      * 比较两个实体类属性值是否相等
      * @param source
      * @param target
      * @return
      * @throws Exception
-     *//*
+     */
 
     public static boolean entityIsEquals(Object source, Object target) throws Exception {
         if (source == null || target == null) {
@@ -147,14 +148,14 @@ public class AppUtil {
         return ret;
     }
 
-    */
+
 /**
      * 根据字段名称取值
      * @param obj
      * @param fieldName
      * @return
      * @throws Exception
-     *//*
+     */
 
     private static Object getClassValue(Object obj, String fieldName) throws Exception {
         @SuppressWarnings("rawtypes")
@@ -174,12 +175,12 @@ public class AppUtil {
         return null;
     }
 
-    */
+
 /**
      * 生成N位随机数
      * @param length
      * @return
-     *//*
+     */
 
     public static String getRandomString(int length) {
         Random random = new Random();
@@ -205,11 +206,11 @@ public class AppUtil {
         return sb.toString();
     }
 
-    */
+
 /**
      * 生成N位纯数字验证码
      * @return
-     *//*
+     */
 
     public static String getVerificationCode(int n) {
         final Random random = new Random();
@@ -220,33 +221,33 @@ public class AppUtil {
         return verificationCode;
     }
 
-    */
+
 /**
      * 生产注单号
      * @return
-     *//*
+     */
 
     public static String getOrdercode() {
         String time = String.valueOf(System.currentTimeMillis());
         return time + time.subSequence(2, 6) + getVerificationCode(1);
     }
 
-    */
+
 /**
      * 生成32位UUID
      * @return
-     *//*
+     */
 
     public static String getUuid() {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
-    */
+
 /**
      * 随机ID生成器，由数字、小写字母和大写字母组成
      * @param size
      * @return
-     *//*
+     */
 
     public static String getUUID(int size) {
         final char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
@@ -263,13 +264,13 @@ public class AppUtil {
         return new String(cs);
     }
 
-    */
+
 /**
      * 相除
      * @param num1
      * @param num2
      * @return
-     *//*
+     */
 
     public static String divide(Object num1, Object num2){
         Float num = Float.parseFloat(num1.toString());
@@ -315,4 +316,3 @@ public class AppUtil {
     }
 
 }
-*/

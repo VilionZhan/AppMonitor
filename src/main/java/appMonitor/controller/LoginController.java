@@ -1,5 +1,6 @@
 package appMonitor.controller;
 
+import appMonitor.common.AjaxResult;
 import appMonitor.service.LoginService;
 import appMonitor.shiro.domain.ResultDomain;
 import appMonitor.shiro.domain.User;
@@ -30,6 +31,7 @@ public class LoginController {
 	private LoginService loginService;
 
 
+
 	/**
 	 * 登录页面
 	 */
@@ -38,6 +40,14 @@ public class LoginController {
         return "login";
     }
 
+	/**
+	 * 登陆
+	 */
+	/*@RequestMapping("/login")
+	public  AjaxResult   login(HttpServletRequest request, HttpServletResponse response){
+//		return  loginService.login(request,response);
+		return "login";
+	}*/
 	/**
 	 * 检验前台数据
 	 * @return
@@ -92,4 +102,8 @@ public class LoginController {
     public String redirectIndex() {
         return "redirect:/main";
     }
+	@RequestMapping("/logout")
+	public AjaxResult logout(HttpServletRequest request, HttpServletResponse response){
+		return loginService.logout(response, request);
+	}
 }

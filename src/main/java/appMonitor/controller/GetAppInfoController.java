@@ -1,8 +1,7 @@
 package appMonitor.controller;
 
 import appMonitor.Utils.HttpTogetAppInfo;
-import appMonitor.dao.ApplicationDaoImp;
-import appMonitor.entity.AppInfo;
+import appMonitor.entity.Application;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,10 @@ public class GetAppInfoController {
     ApplicationDaoImp applicationDaoImp;
 
     @RequestMapping(value = "/getAppInfo/{info}")
-    public String getAppInfo(@PathVariable AppInfo info){
+    public String getAppInfo(@PathVariable Application info){
            logger.info(info);
             //查询数据库获取注册的服务的IP和端口
-           List<AppInfo> regist = applicationDaoImp.selectApplicationByip(info);
+           List<Application> regist = applicationDaoImp.selectApplicationByip(info);
            if (regist.size()>0){
                return "App IP IS EXISTER";
            } else {

@@ -1,10 +1,16 @@
 package appMonitor.controller;
 
+import appMonitor.entity.Application;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class AppController {
@@ -19,11 +25,22 @@ public class AppController {
      */
     @RequestMapping(value = "/appInstallpage",method = RequestMethod.POST)
     public String appInstall(){
-        log.info("===appInstallpage is begin===");
-        //若部署成功返回消息
-        log.info("===appInstallpage is ok===");
         return "app/appInstallpage";
     }
+
+    /**
+     * 注册服务
+     * @param appinfo
+     * @return
+     */
+    @RequestMapping(value = "/installApp",method = RequestMethod.POST)
+    @ResponseBody
+    public Application installApp(@RequestBody Application appinfo){
+
+        log.info("接收前台注册数据["+appinfo+"]");
+        return appinfo;
+    }
+
 
     //返回系统首页
     @RequestMapping(value = "/content",method = RequestMethod.POST)
@@ -31,10 +48,11 @@ public class AppController {
         return "common/content";
     }
     //返回系统首页
-    @RequestMapping(value = "/echart",method = RequestMethod.POST)
+   /* @RequestMapping(value = "/echart",method = RequestMethod.POST)
     public String echart(){
+        log.info("echart====================================");
         return "common/echart";
-    }
+    }*/
 
     //返回系统信息
     @RequestMapping(value = "/System",method = RequestMethod.POST)

@@ -1,4 +1,4 @@
-package appMonitor.entity;
+package appMonitor.common;
 
 /**
  * 封装返回数据
@@ -61,7 +61,6 @@ public class AjaxResult {
 
     @Override
     public String toString() {
-        return "AjaxResult [retcode=" + retcode + ", retmsg=" + retmsg + ", data=" + data + "]";
+        return "AjaxResult{" + "retcode=" + retcode + ", retmsg='" + retmsg + '\'' + ", data=" + data + '}';
     }
-
 }
