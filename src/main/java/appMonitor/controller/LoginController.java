@@ -3,7 +3,7 @@ package appMonitor.controller;
 import appMonitor.common.AjaxResult;
 import appMonitor.service.LoginService;
 import appMonitor.shiro.domain.ResultDomain;
-import appMonitor.shiro.domain.User;
+import appMonitor.shiro.domain.AppUser;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -93,7 +96,7 @@ public class LoginController {
     @RequestMapping("/main")
     public String loginSystem(Model model){
         // 登录成后，即可通过Subject获取登录的用户信息
-        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        AppUser user = (AppUser) SecurityUtils.getSubject().getPrincipal();
         model.addAttribute("user", user);
         return "app/main";
     }

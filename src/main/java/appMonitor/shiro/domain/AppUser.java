@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 用户实体类
  */
 
-public class User implements Serializable {
+public class AppUser implements Serializable {
 
     private static final long serialVersionUID = -5440372534300871944L;
 

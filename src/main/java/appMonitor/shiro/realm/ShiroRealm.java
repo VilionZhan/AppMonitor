@@ -1,6 +1,6 @@
 package appMonitor.shiro.realm;
 
-import appMonitor.shiro.domain.User;
+import appMonitor.shiro.domain.AppUser;
 import appMonitor.shiro.mapper.UserMapper;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -35,7 +35,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		String password = new String((char[]) token.getCredentials());
 
 		System.out.println("用户" + username + "认证-----ShiroRealm.doGetAuthenticationInfo");
-		User user = userMapper.findByUserName(username);
+		AppUser user = userMapper.findByUserName(username);
 
 		if (user == null) {
 			throw new UnknownAccountException("用户名或密码错误！");

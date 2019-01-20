@@ -5,8 +5,8 @@ import appMonitor.Utils.CookieUtil;
 import appMonitor.Utils.MD5Util;
 import appMonitor.common.AjaxResult;
 import appMonitor.common.Constant;
+import appMonitor.dao.impDao.ApplicationDaoImp;
 import appMonitor.entity.ParamData;
-import appMonitor.implement.ApplicationDaoImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -21,15 +21,16 @@ public class LoginService {
     private ApplicationDaoImp applicationDaoImp;
 
 
-    public String login(HttpServletRequest request, HttpServletResponse response){
+    /*public String Userlogin(HttpServletRequest request, HttpServletResponse response){
         List list = new ArrayList();
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        AppInfo appInfo = new AppInfo();
-        if (name != null || !"".equals(name) && password != null || !"".equals(password)){
-            appInfo.setUserName(name);
-            appInfo.setPassword(password);
+        Application appInfo = new Application();
+        if (name != null || !"".equals(name) && password != null || !"".equals(password)) {
             list = applicationDaoImp.selectUserInfo(appInfo);
+        }
+        return list.toString();
+    }*/
 
     public AjaxResult login(HttpServletRequest request, HttpServletResponse response){
         String verifyCode = (String) request.getSession().getAttribute(Constant.VERIFY_CODE);

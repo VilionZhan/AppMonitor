@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="APPLICATION")
-public class Application {
+public class  Application {
 	/**
 	 * 主键
 	 */

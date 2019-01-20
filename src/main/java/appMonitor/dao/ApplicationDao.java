@@ -1,8 +1,11 @@
 package appMonitor.dao;
 
 import appMonitor.entity.Application;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
+@Repository
 public interface ApplicationDao {
     //新增应用;
     public int insert(Application Application);

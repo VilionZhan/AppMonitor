@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="appMonitor.shiro.mapper.UserMapper">
-    <resultMap type="appMonitor.shiro.domain.User" id="User">
+    <resultMap type="appMonitor.shiro.domain.AppUser" id="User">
         <id column="uid" property="uid" javaType="java.lang.Integer" jdbcType="NUMERIC"/>
         <id column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
         <id column="password" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="findByUserName" resultMap="User">
-        select * from user where username = #{username}
+        select * from AppUser where username = #{username}
     </select>
 </mapper>
