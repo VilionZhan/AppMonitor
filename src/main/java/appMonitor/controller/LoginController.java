@@ -34,7 +34,6 @@ public class LoginController {
 	private LoginService loginService;
 
 
-
 	/**
 	 * 登录页面
 	 */
@@ -43,25 +42,6 @@ public class LoginController {
         return "login";
     }
 
-	/**
-	 * 登陆
-	 */
-	/*@RequestMapping("/login")
-	public  AjaxResult   login(HttpServletRequest request, HttpServletResponse response){
-//		return  loginService.login(request,response);
-		return "login";
-	}*/
-	/**
-	 * 检验前台数据
-	 * @return
-	 */
-	@RequestMapping("/checkdate")
-	@ResponseBody
-	public Map retAjaxDate() {
-		Map map =new HashMap();
-		map.put("retcode","1");
-		return map;
-	}
 
     /**
      * 认证登录
@@ -86,9 +66,23 @@ public class LoginController {
         } catch (LockedAccountException e) {
             return ResultDomain.error(e.getMessage());
         } catch (AuthenticationException e) {
-            return ResultDomain.error("认证失败！");
+            String err = e.getMessage();
+            return ResultDomain.error(err);
         }
     }
+
+	/**
+	 * 检验前台数据
+	 * @return
+	 */
+	@RequestMapping("/checkdate")
+	@ResponseBody
+	public Map retAjaxDate() {
+		Map map =new HashMap();
+		map.put("retcode","1");
+		return map;
+	}
+
 
     /**
      * 进入系统主页

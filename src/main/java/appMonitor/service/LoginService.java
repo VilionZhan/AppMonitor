@@ -21,17 +21,6 @@ public class LoginService {
     private ApplicationDaoImp applicationDaoImp;
 
 
-    /*public String Userlogin(HttpServletRequest request, HttpServletResponse response){
-        List list = new ArrayList();
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
-        Application appInfo = new Application();
-        if (name != null || !"".equals(name) && password != null || !"".equals(password)) {
-            list = applicationDaoImp.selectUserInfo(appInfo);
-        }
-        return list.toString();
-    }*/
-
     public AjaxResult login(HttpServletRequest request, HttpServletResponse response){
         String verifyCode = (String) request.getSession().getAttribute(Constant.VERIFY_CODE);
         String result ="OK";

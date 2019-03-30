@@ -25,11 +25,7 @@ public class AppController {
         return "app/appInstallpage";
     }
 
-    /**
-     * @param appinfo
-     * 注册服务
-     * @return
-     */
+    // 注册服务
     @RequestMapping(value = "/installApp",method = RequestMethod.POST)
     @ResponseBody
     public Application installApp(@RequestBody Application appinfo){
@@ -38,18 +34,11 @@ public class AppController {
         return appinfo;
     }
 
-
     //返回系统首页
     @RequestMapping(value = "/content",method = RequestMethod.POST)
     public String content(){
         return "common/content";
     }
-    //返回系统首页
-   /* @RequestMapping(value = "/echart",method = RequestMethod.POST)
-    public String echart(){
-        log.info("echart====================================");
-        return "common/echart";
-    }*/
 
     //返回系统信息
     @RequestMapping(value = "/System",method = RequestMethod.POST)
