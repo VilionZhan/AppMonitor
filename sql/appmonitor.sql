@@ -66,6 +66,7 @@ INSERT INTO `user` VALUES ('1', 'admin', 'admin');
 user appMonitor;
 SHOW TABLES ;
 /*用户表*/
+DROP TABLE IF EXISTS `APP_USER`;
 CREATE TABLE APP_USER(
   USER_NAME VARCHAR(20),
   USER_PASSWORD VARCHAR(20),
@@ -81,6 +82,7 @@ ALTER TABLE `APP_USER` ADD UNIQUE (`USER_PHONE`);
 describe APP_USER;
 
 /**应用注册表*/
+DROP TABLE IF EXISTS `app_register`;
  create table app_register (
    app_name varchar(20),
    app_address varchar(50) primary key,
