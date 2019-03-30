@@ -1,4 +1,4 @@
-package appMonitor.mode;
+package appMonitor.domain;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

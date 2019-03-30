@@ -62,7 +62,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', 'admin', 'admin');
 
 -- ----------------------------
--- add by zhangbendong 2019 03 30- ----------------------------
+-- add by zhangbendong 2019 03 30  begin- ----------------------------
 user appMonitor;
 SHOW TABLES ;
 /*用户表*/
@@ -71,18 +71,16 @@ CREATE TABLE APP_USER(
   USER_NAME VARCHAR(20),
   USER_PASSWORD VARCHAR(20),
   USER_POWER VARCHAR(10),
-  USER_PHONE INT(20),
+  USER_PHONE INT(20) primary key,
   EMAIL VARCHAR(20),
   REGISTER_DATE DATE,
   EXT1 VARCHAR(100),
   EXT2 VARCHAR(100),
   EXT3 VARCHAR(100)
 );
-ALTER TABLE `APP_USER` ADD UNIQUE (`USER_PHONE`);
 describe APP_USER;
 
 /**应用注册表*/
-DROP TABLE IF EXISTS `app_register`;
  create table app_register (
    app_name varchar(20),
    app_address varchar(50) primary key,
@@ -91,3 +89,7 @@ DROP TABLE IF EXISTS `app_register`;
    app_status int(2)
  );
 describe app_register;
+
+-- add by zhangbendong 2019 03 30  end- ----------------------------
+
+

@@ -2,19 +2,14 @@ package appMonitor.shiro.domain;
 
 import java.io.Serializable;
 
-/**
- * 角色实体类
- */
-
 public class Role implements Serializable {
-
-    private static final long serialVersionUID = -5440372534300871944L;
-
-    // 角色id
     private Integer rid;
 
-    // 角色名称
     private String roleName;
+
+    private Integer uid;
+
+    private static final long serialVersionUID = 1L;
 
     public Integer getRid() {
         return rid;
@@ -32,5 +27,24 @@ public class Role implements Serializable {
         this.roleName = roleName;
     }
 
+    public Integer getUid() {
+        return uid;
+    }
 
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", rid=").append(rid);
+        sb.append(", roleName=").append(roleName);
+        sb.append(", uid=").append(uid);
+        sb.append("]");
+        return sb.toString();
+    }
 }

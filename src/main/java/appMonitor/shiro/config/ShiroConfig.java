@@ -1,7 +1,5 @@
 package appMonitor.shiro.config;
 
-import java.util.LinkedHashMap;
-
 import appMonitor.shiro.realm.ShiroRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -9,6 +7,8 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.LinkedHashMap;
 
 @Configuration
 public class ShiroConfig {
@@ -56,3 +56,4 @@ public class ShiroConfig {
     }  
 	
 }
+

@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Controller
 public class AppController {
 
@@ -29,8 +26,8 @@ public class AppController {
     }
 
     /**
-     * 注册服务
      * @param appinfo
+     * 注册服务
      * @return
      */
     @RequestMapping(value = "/installApp",method = RequestMethod.POST)

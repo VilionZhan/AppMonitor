@@ -3,7 +3,7 @@ package appMonitor.controller;
 import appMonitor.common.AjaxResult;
 import appMonitor.service.LoginService;
 import appMonitor.shiro.domain.ResultDomain;
-import appMonitor.shiro.domain.AppUser;
+import appMonitor.shiro.domain.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  * 登录Controller
- * @author ZBD
+ * @author zhangbendong
  */
 @Controller
 public class LoginController {
@@ -96,7 +96,7 @@ public class LoginController {
     @RequestMapping("/main")
     public String loginSystem(Model model){
         // 登录成后，即可通过Subject获取登录的用户信息
-        AppUser user = (AppUser) SecurityUtils.getSubject().getPrincipal();
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
         model.addAttribute("user", user);
         return "app/main";
     }
