@@ -49,7 +49,7 @@
                     </label>
                 </form>
                 <div class="z-title">
-                    <p>2019 © appMonitorl</p>
+                    <p>2019 © appMonitor</p>
                 </div>
             </div>
         </div>
@@ -119,9 +119,6 @@
             $("#password").focus();
             return;
         }
-        // if(password.length <= 20){
-        //     password = hex_md5(password);
-        // }
         var data = "username=" + username + "&password=" + password;
         var vcode = $("#vcode").val();
         if(undefined != vcode){
@@ -133,31 +130,7 @@
             }
             data += "&vcode=" + vcode;
         }
-        // $(".z-loading-wrap").show();
-        // $.ajax({
-        //     url: "/checkdate",
-        //     data: data,
-        //     type: "post",
-        //     dataType: "json",
-        //     beforeSend: function(xhr){
-        //         xhr.setRequestHeader("vcode","1");
-        //     },
-        //     success: function(req){
-        //         if(req.retcode == 1){
-                   /* var remenber = $("#setcheck").is(":checked");
-                    var cookieName = username + ":userinfo";
-                    if(remenber){
-                        var cookieValue = username + "&" + password;
-                        //设置cookie值有效期30天
-                        $.cookie(cookieName, cookieValue, {expires:30});
-                        $.cookie("username", username, {expires:30});
-                        $.cookie("password", password, {expires:30});
-                    }else{
-                        $.cookie(cookieName, "");
-                        $.cookie("username", "");
-                        $.cookie("password", "");
-                    }*/
-                    // window.location.href = "/main"
+
         $.ajax({
             type: "post",
             url: "/login",
@@ -165,39 +138,12 @@
             dataType: "json",
             success: function (r) {
                 if (r.code == 0) {
-                    window.location.href = '/main';
+                    window.location.href = '/main';//跳转主页面
                 } else {
                     alert(r.msg);
                 }
             }
         });
-        //         } else {
-        //             $(".z-loading-wrap").hide();
-        //             $("#vcode").select();
-        //             $("#vimg").attr("src", "@{/getVcode?random=}" + Math.random());
-        //             var msg = req.retmsg;
-        //             var end = msg.lastIndexOf("|");
-        //             if(end > 0){
-        //                 var errTimes = msg.substring(end + 1, msg.length);
-        //                 if(3 <= errTimes && undefined == vcode){
-        //                     var html = [];
-        //                     html.push('<input type="text" name="vcode" id="vcode" maxlength="4" class="form-control" placeholder="验证码">');
-        //                     html.push('<img class="z-code" id="vimg" th:src="@{getVcode}" onclick="vcodeclick()" title="验证码" alt="验证码">');
-        //                     $("#showVcode").append(html.join(''));
-        //                 }
-        //                 msg = msg.substring(0, end);
-        //             }
-        //             $("#err").html(msg);
-        //         }
-        //     },
-        //     error: function(req){
-        //         $(".z-loading-wrap").hide();
-        //         $("#vcode").select();
-        //         $("#vimg").attr("src", "${ctx}/getVcode?random=" + Math.random());
-        //         $("#errDiv").show();
-        //         $("#err").html("系统异常");
-        //     }
-        // });
     }
 
     $(function (){

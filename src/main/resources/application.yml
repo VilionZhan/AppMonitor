@@ -9,7 +9,7 @@ management:
     shutdown:
       enabled: true
 server:
-  port: 8080
+  port: 8324
 
 #应用自定义信息配置
 info:

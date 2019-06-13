@@ -23,16 +23,13 @@ public class LoginAspect {
     public void loginBeforeAdvice(JoinPoint joinPoint){
         String classname = joinPoint.getTarget().getClass().getSimpleName();
         String methodname = joinPoint.getSignature().getName();
-        log.info("登陆前拦截类："+classname);
+        log.info(">>>>>>>>>>>>>>>>>>登陆前拦截类："+classname);
     }
 
     //After
     @After("loginAspcetMethod()")
     public void loginAfterAdvice(JoinPoint joinPoint){
-        log.info("登陆后。。。。。。。。。。。。。");
+        log.info("<<<<<<<<<<<<<<<<<登陆后>>>>>>>>>>>>>>>>>>");
     }
-
-
-
 
 }

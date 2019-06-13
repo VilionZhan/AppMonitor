@@ -1,6 +1,5 @@
 package appMonitor.controller;
 
-import appMonitor.common.AjaxResult;
 import appMonitor.service.LoginService;
 import appMonitor.shiro.domain.ResultDomain;
 import appMonitor.shiro.domain.User;
@@ -16,11 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 登录Controller
@@ -28,23 +25,22 @@ import java.util.Map;
  */
 @Controller
 public class LoginController {
+
 	private  final Log log = LogFactory.getLog(LoginController.class);
 
 	@Autowired
 	private LoginService loginService;
 
-
 	/**
-	 * 登录页面
+	 * 登录页面 login.html
 	 */
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
-
     /**
-     * 认证登录
+     * 登录认证 shiro
      * @param username
      * @param password
      * @return
@@ -66,41 +62,34 @@ public class LoginController {
         } catch (LockedAccountException e) {
             return ResultDomain.error(e.getMessage());
         } catch (AuthenticationException e) {
-            String err = e.getMessage();
-            return ResultDomain.error(err);
+            return ResultDomain.error(e.getMessage());
         }
     }
 
-	/**
-	 * 检验前台数据
-	 * @return
-	 */
-	@RequestMapping("/checkdate")
-	@ResponseBody
-	public Map retAjaxDate() {
-		Map map =new HashMap();
-		map.put("retcode","1");
-		return map;
-	}
-
-
     /**
      * 进入系统主页
+     * @param Model model
+     * @return url
      */
     @RequestMapping("/main")
     public String loginSystem(Model model){
-        // 登录成后，即可通过Subject获取登录的用户信息
+        //登录成后，即可通过Subject获取登录的用户信息
         User user = (User) SecurityUtils.getSubject().getPrincipal();
+        //给返回页面封装对象数据
         model.addAttribute("user", user);
         return "app/main";
     }
 
-    @RequestMapping("/")
-    public String redirectIndex() {
-        return "redirect:/main";
+    /**
+     * 用户退出
+     * @param request
+     * @return
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request){
+        SecurityUtils.getSubject().logout();
+        //跳转到/login
+        return InternalResourceViewResolver.REDIRECT_URL_PREFIX + "/login";
     }
-	@RequestMapping("/logout")
-	public AjaxResult logout(HttpServletRequest request, HttpServletResponse response){
-		return loginService.logout(response, request);
-	}
+
 }

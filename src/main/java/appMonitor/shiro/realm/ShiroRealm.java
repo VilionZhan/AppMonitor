@@ -8,6 +8,9 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * shiro ---Realm(跟数据层打交道)
+ */
 public class ShiroRealm extends AuthorizingRealm {
 
 	@Autowired

@@ -22,25 +22,29 @@
         <div class="navbar-header" >
             <a class="navbar-brand" href="#/home">应用监控系统</a>
         </div>
-
-        <div class="right clearfix">
+        <!--右侧信息-->
+        <div>
             <ul class="nav navbar-nav pull-right right-navbar-nav">
-
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown" id="showHeadImg">
-                        <img th:src="@{images/user-head-default.png}" alt=""><span>张三</span>
+                        <img th:src="@{images/user-head-default.png}" alt="">
+                        welcome：
+                        <span style="font-size: 20px;color: #9acfea;" th:text="${user.username}" id="username"></span>
+                        <!--thymeleaf获取后台mode的值 为了js能取到值自定义input-->
+                        <input type="hidden" th:value="${user.username}" id="name"/>
                     </a>
+                    <!--dropdown-menu下拉菜单   图标用  font-awesome.min.css-->
                     <ul class="dropdown-menu">
-                        <li><a href="javascript:showModal('修改密码', 'admin/user/updatePasswdPage?id=${loginUser.id}');"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;修改密码</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:index()"><i class="dropdown-icon fa fa-home"></i>&nbsp;&nbsp;Druid监控</a></li>
-                        <li><a href="javascript:logout()"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;退出</a></li>
+                        <li><a href="javascript:showModal('修改密码', 'admin/user/updatePasswdPage?id=${loginUser.id}');"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;ResetPassword</a></li>
+                        <li><a href="javascript:index()"><i class="fa fa-spinner" aria-hidden="true"></i>&nbsp;&nbsp;DruidMonitor</a></li>
+                        <li><a href="javascript:logout()"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Logout</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </header>
+<!--左侧下拉菜单-->
 <div class="wrapper-muen" >
     <ul id="accordion" class="accordion">
         <li>
@@ -240,6 +244,20 @@
             }
         });
     }
+
+    <!--退出-->
+    function logout() {
+        var username = $("#name").val();
+        $.ajax({
+            url : "/logout",
+            type : "post",
+            data: {"username": username},
+            dataType: "json",
+            success : function() {
+            },
+        });
+    }
+
 </script>
 </body>
 </html>
