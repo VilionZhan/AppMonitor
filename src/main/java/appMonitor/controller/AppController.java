@@ -34,10 +34,17 @@ public class AppController {
         return appinfo;
     }
 
+    //服务查询
+    @RequestMapping(value = "/appInstallsearch",method = RequestMethod.POST)
+    public String serachinstallApp(){
+        return "app/appInstallsearch";
+    }
+
+
     //返回系统首页
-    @RequestMapping(value = "/content",method = RequestMethod.POST)
-    public String content(){
-        return "common/content";
+    @RequestMapping(value = "/main",method = RequestMethod.POST)
+    public String echart(){
+        return "common/echart";
     }
 
     //返回系统信息
@@ -45,23 +52,6 @@ public class AppController {
     public String System(){
         return "common/System";
     }
-    //启动应用
-    /*@RequestMapping(value = "/content",method = RequestMethod.POST)
-    public boolean content(){
-        System.out.println("content..........................");
-        return true;
-    }
-    //应用停止
-    @RequestMapping(value = "/content",method = RequestMethod.POST)
-    public boolean content(){
-        System.out.println("content..........................");
-        return true;
-    }
-    //应用重启
-    @RequestMapping(value = "/content",method = RequestMethod.POST)
-    public boolean content(){
-        System.out.println("content..........................");
-        return true;
-    }*/
+
 
 }
