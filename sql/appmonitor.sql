@@ -85,7 +85,7 @@ describe APP_USER;
    app_name varchar(20),
    app_address varchar(50) primary key,
    app_port int (6) unique ,
-   app_regdate date,
+   app_regdate varchar(30),
    app_status int(2)
  );
 describe app_register;
