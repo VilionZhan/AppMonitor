@@ -37,7 +37,6 @@
         <br><br><br><br>
         <div class="registerApp" style="padding-left: 450px">
             <button onclick="searchAppInfo()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">查询</button>
-            <button type="button" class="btn btn-default" style="text-align: center ;background-color: #88A4C8">取消</button>
         </div>
     </div>
     <script type="text/javascript">
@@ -62,31 +61,6 @@
             }
         }
 
-
-        //服务注册
-        function registerApp () {
-            if(confirm("是否确认新增应用？")) {
-                $.ajax({
-                    async: false,
-                    type: "POST",
-                    url: '/installApp',
-                    dataType: "text",
-                    data: JSON.stringify($('#appregisterinfo').serialize()),
-                    contentType: 'application/json',
-                    success: function (req) {
-                        alert("注册成功！");
-                    },
-                    error: function (req) {
-                        alert("注册失败！");
-                    }
-                })
-                return true;
-            }else {
-                return false;
-            }
-        }
-
-        //服务查询
         function searchAppInfo() {
             var appname = $("#applicationname").val();
             var applicationip = $("#applicationip").val();
@@ -103,18 +77,24 @@
                 alert("端口号为空，请重新输入");
                 return;
             }
-
+            //组装查询数据
+            var applicationInfo = {
+                "applicationName":appname,
+                "applicationIp":applicationip,
+                "applicationPort":applicationport
+            }
             $.ajax({
                 async:false,
                 type:"POST",
-                url:'/installApp',
+                url:'main/QueryApplication',
                 dataType:"text",
-                data:JSON.stringify($('#appregisterinfo').serialize()),
+                data: JSON.stringify(applicationInfo),
                 contentType:'application/json',
-                success : function(req) {
-                    alert("成功！"); alert("成功！");
+                success : function(data) {
+                    alert(data);
+                    alert("成功！");
                 },
-                error : function(req) {
+                error : function(data) {
                     alert("查询失败！");
                 }
             })

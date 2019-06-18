@@ -21,7 +21,7 @@
         </div>
         <br>  <br>
         <div class="applicationInstall" >
-            <form id="appregisterinfo" >
+            <form id="appregisterinfo" method="post">
                 <table class="table table-striped">
                     <tr >
                         <td><label style="padding-top: 8px;font-size: 15px">应用名称</label></td>
@@ -38,46 +38,49 @@
         <div class="registerApp" style="padding-left: 450px">
             <button onclick="searchAppInfo()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">查询</button>
             <button onclick="registerApp()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">注册</button>
-            <button type="button" class="btn btn-default" style="text-align: center ;background-color: #88A4C8">取消</button>
         </div>
     </div>
     <script type="text/javascript">
-        //空值校验
-       function needinput(){
-           var appname = $("#applicationname").val();
-           if (appname=="") {
-               alert("应用名称为空，请重新输入");
-           }
-        }
-        function needinputip(){
-            var applicationip = $("#applicationip").val();
-            if (applicationip=="") {
-                alert("ip地址为空，请重新输入");
-            }
-        }
-
-        function needinputport(){
-            var applicationport = $("#applicationport").val();
-            if (applicationport=="") {
-                alert("端口号为空，请重新输入");
-            }
-        }
-
 
         //服务注册
         function registerApp () {
+            //空值校验
+            var applicationname = $("#applicationname").val();
+
+            var applicationip = $("#applicationip").val();
+
+            var applicationport = $("#applicationport").val();
+
+            if (applicationname=="") {
+                alert("应用名称为空，请重新输入");
+                return false;
+            }
+            if (applicationip=="") {
+                alert("ip地址为空，请重新输入");
+                return;
+            }
+            if (applicationport=="") {
+                alert("端口号为空，请重新输入");
+                return;
+            }
+            //组装数据
+            var addInfo = {
+                "applicationName":applicationname,
+                "applicationIp":applicationip,
+                "applicationPort":applicationport
+            }
             if(confirm("是否确认新增应用？")) {
                 $.ajax({
                     async: false,
                     type: "POST",
-                    url: '/installApp',
+                    url: 'main/AddApplication',
                     dataType: "text",
-                    data: JSON.stringify($('#appregisterinfo').serialize()),
+                    data: JSON.stringify(addInfo),
                     contentType: 'application/json',
-                    success: function (req) {
+                    success: function (data) {
                         alert("注册成功！");
                     },
-                    error: function (req) {
+                    error: function (data) {
                         alert("注册失败！");
                     }
                 })
@@ -105,22 +108,29 @@
                 return;
             }
 
+            var applicationInfo = {
+                "applicationName":appname,
+                "applicationIp":applicationip,
+                "applicationPort":applicationport
+            }
             $.ajax({
                 async:false,
                 type:"POST",
-                url:'/installApp',
+                url:'main/QueryApplication',
                 dataType:"text",
-                data:JSON.stringify($('#appregisterinfo').serialize()),
+                data: JSON.stringify(applicationInfo),
                 contentType:'application/json',
-                success : function(req) {
-                    alert("成功！"); alert("成功！");
+                success : function(data) {
+                    alert(data);
+                    alert("成功！");
                 },
-                error : function(req) {
+                error : function(data) {
                     alert("查询失败！");
                 }
             })
 
         }
+
     </script>
 </body>
 </html>

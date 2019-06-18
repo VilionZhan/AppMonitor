@@ -5,7 +5,7 @@
     <id column="app_address" jdbcType="VARCHAR" property="appAddress" />
     <result column="app_name" jdbcType="VARCHAR" property="appName" />
     <result column="app_port" jdbcType="INTEGER" property="appPort" />
-    <result column="app_regdate" jdbcType="DATE" property="appRegdate" />
+    <result column="app_regdate" jdbcType="VARCHAR" property="appRegdate" />
     <result column="app_status" jdbcType="INTEGER" property="appStatus" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -25,7 +25,7 @@
     insert into app_register (app_address, app_name, app_port, 
       app_regdate, app_status)
     values (#{appAddress,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, #{appPort,jdbcType=INTEGER}, 
-      #{appRegdate,jdbcType=DATE}, #{appStatus,jdbcType=INTEGER})
+      #{appRegdate,jdbcType=VARCHAR}, #{appStatus,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="appMonitor.domain.AppRegister">
     insert into app_register
@@ -57,7 +57,7 @@
         #{appPort,jdbcType=INTEGER},
       </if>
       <if test="appRegdate != null">
-        #{appRegdate,jdbcType=DATE},
+        #{appRegdate,jdbcType=VARCHAR},
       </if>
       <if test="appStatus != null">
         #{appStatus,jdbcType=INTEGER},
@@ -74,7 +74,7 @@
         app_port = #{appPort,jdbcType=INTEGER},
       </if>
       <if test="appRegdate != null">
-        app_regdate = #{appRegdate,jdbcType=DATE},
+        app_regdate = #{appRegdate,jdbcType=VARCHAR},
       </if>
       <if test="appStatus != null">
         app_status = #{appStatus,jdbcType=INTEGER},
@@ -86,7 +86,7 @@
     update app_register
     set app_name = #{appName,jdbcType=VARCHAR},
       app_port = #{appPort,jdbcType=INTEGER},
-      app_regdate = #{appRegdate,jdbcType=DATE},
+      app_regdate = #{appRegdate,jdbcType=VARCHAR},
       app_status = #{appStatus,jdbcType=INTEGER}
     where app_address = #{appAddress,jdbcType=VARCHAR}
   </update>
@@ -105,7 +105,7 @@
       </trim>
       <trim prefix="app_regdate = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
-          when app_address = #{item.appAddress,jdbcType=VARCHAR} then #{item.appRegdate,jdbcType=DATE}
+          when app_address = #{item.appAddress,jdbcType=VARCHAR} then #{item.appRegdate,jdbcType=VARCHAR}
         </foreach>
       </trim>
       <trim prefix="app_status = case" suffix="end,">
@@ -125,7 +125,7 @@
     values
     <foreach collection="list" item="item" separator=",">
       (#{item.appAddress,jdbcType=VARCHAR}, #{item.appName,jdbcType=VARCHAR}, #{item.appPort,jdbcType=INTEGER}, 
-        #{item.appRegdate,jdbcType=DATE}, #{item.appStatus,jdbcType=INTEGER})
+        #{item.appRegdate,jdbcType=VARCHAR}, #{item.appStatus,jdbcType=INTEGER})
     </foreach>
   </insert>
   <insert id="insertOrUpdate" parameterType="appMonitor.domain.AppRegister">
@@ -137,12 +137,12 @@
     (app_address, app_name, app_port, app_regdate, app_status)
     values
     (#{appAddress,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, #{appPort,jdbcType=INTEGER}, 
-      #{appRegdate,jdbcType=DATE}, #{appStatus,jdbcType=INTEGER})
+      #{appRegdate,jdbcType=VARCHAR}, #{appStatus,jdbcType=INTEGER})
     on duplicate key update 
     app_address = #{appAddress,jdbcType=VARCHAR}, 
     app_name = #{appName,jdbcType=VARCHAR}, 
     app_port = #{appPort,jdbcType=INTEGER}, 
-    app_regdate = #{appRegdate,jdbcType=DATE}, 
+    app_regdate = #{appRegdate,jdbcType=VARCHAR},
     app_status = #{appStatus,jdbcType=INTEGER}
   </insert>
   <insert id="insertOrUpdateSelective" parameterType="appMonitor.domain.AppRegister">
@@ -180,7 +180,7 @@
         #{appPort,jdbcType=INTEGER},
       </if>
       <if test="appRegdate != null">
-        #{appRegdate,jdbcType=DATE},
+        #{appRegdate,jdbcType=VARCHAR},
       </if>
       <if test="appStatus != null">
         #{appStatus,jdbcType=INTEGER},
@@ -198,7 +198,7 @@
         app_port = #{appPort,jdbcType=INTEGER},
       </if>
       <if test="appRegdate != null">
-        app_regdate = #{appRegdate,jdbcType=DATE},
+        app_regdate = #{appRegdate,jdbcType=VARCHAR},
       </if>
       <if test="appStatus != null">
         app_status = #{appStatus,jdbcType=INTEGER},

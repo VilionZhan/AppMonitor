@@ -1,7 +1,6 @@
 package appMonitor.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Create By zhangdongdong..........
@@ -16,7 +15,7 @@ public class AppRegister implements Serializable {
 
     private Integer appPort;
 
-    private Date appRegdate;
+    private String appRegdate;
 
     private Integer appStatus;
 
@@ -46,11 +45,11 @@ public class AppRegister implements Serializable {
         this.appPort = appPort;
     }
 
-    public Date getAppRegdate() {
+    public String getAppRegdate() {
         return appRegdate;
     }
 
-    public void setAppRegdate(Date appRegdate) {
+    public void setAppRegdate(String appRegdate) {
         this.appRegdate = appRegdate;
     }
 

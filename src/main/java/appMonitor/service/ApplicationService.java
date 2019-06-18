@@ -1,11 +1,9 @@
 package appMonitor.service;
 
-import appMonitor.dao.ApplicationDao;
-import appMonitor.entity.Application;
+import appMonitor.domain.AppRegister;
+import appMonitor.mapper.AppRegisterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author zbd
@@ -14,19 +12,36 @@ import java.util.List;
 public class ApplicationService {
 
     @Autowired
-    private ApplicationDao applicationDao;
+    private AppRegisterMapper appRegisterMapper;
     /**
      * 注册应用
      * @param appInfo
      * @return
      */
-    public boolean AppInsatalled(Application appInfo){
-        boolean result = true;
-        List list =  applicationDao.selectApplicationByip(appInfo);
-        if (list.size()>0){
-            System.out.println("ip已经存在....");
-            result = false;
+    public String CreateApplication(AppRegister appInfo){
+        String result = "false";
+        AppRegister list =  appRegisterMapper.selectByPrimaryKey(appInfo.getAppAddress());
+        if (list != null){
+            result = "false";//应用已存在
+        }else {
+            appRegisterMapper.insert(appInfo);
+            result = "true";//新增成功
         }
         return result;
     }
+
+    /**
+     * 应用查询
+     * @param appInfo
+     * @return
+     */
+    public boolean QueryApplication(AppRegister appInfo){
+        AppRegister appRegister = appRegisterMapper.selectByPrimaryKey(appInfo.getAppAddress());
+        if (appRegister!=null){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 }
