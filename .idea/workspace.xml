@@ -1,51 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="182def53-f8f7-43bb-9a84-8ea08a972587" name="Default Changelist" comment="优化页面">
-      <change afterPath="$PROJECT_DIR$/src/main/java/appMonitor/Utils/Singleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/appMonitor/common/BaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/appMonitor/common/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/appMonitor/service/Impl/LoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/app/queryresultpage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/common/nodate.html" afterDir="false" />
+    <list default="true" id="182def53-f8f7-43bb-9a84-8ea08a972587" name="Default Changelist" comment="优化">
+      <change afterPath="$PROJECT_DIR$/src/main/java/appMonitor/service/Impl/ApplicationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/Utils/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/Utils/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/controller/GetAppInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/controller/GetAppInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/dao/ApplicationDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/dao/impDao/ApplicationDaoImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/domain/AppRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/domain/AppRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/entity/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/entity/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/mapper/AppRegisterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/mapper/AppRegisterMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/mapper/AppUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/mapper/AppUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/service/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/service/ApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appMonitor/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appMonitor/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AppRegisterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AppRegisterMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/app/appInstallpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/app/appInstallpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/app/appInstallsearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/app/appInstallsearch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/app/appmune.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/app/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/app/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/Utils/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/Utils/test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/controller/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/controller/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/controller/GetAppInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/controller/GetAppInfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/dao/ApplicationDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/service/ApplicationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/service/ApplicationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/appMonitor/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/appMonitor/service/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/app/appInstallpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/app/appInstallpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/app/appmune.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/app/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/app/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/common/menu.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,14 +66,31 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/app/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            <state relative-caret-position="23">
+              <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AppUserMapper.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/appMonitor/service/Impl/ApplicationServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="124" column="7" lean-forward="true" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,6 +184,7 @@
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="VilionZhan &lt;980906886@qq.com&gt;" />
+        <option value="vilionzhan &lt;980906886@qq.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -356,15 +332,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="appMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="appMonitor" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -377,61 +344,12 @@
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="Impl" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gitProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gitProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,7 +361,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566731492418" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567176412220" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java/javaWeb/javaweb项目/bootdo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -607,6 +525,7 @@
       <workItem from="1566570215085" duration="1573000" />
       <workItem from="1566617777854" duration="24778000" />
       <workItem from="1567170772499" duration="934000" />
+      <workItem from="1567175581689" duration="826000" />
     </task>
     <task id="LOCAL-00001" summary="新增数据表">
       <created>1553937170703</created>
@@ -720,7 +639,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560851716929</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="优化">
+      <created>1567175812752</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1567175812752</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -741,7 +667,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253082000" />
+    <option name="totallyTimeSpent" value="253908000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -753,10 +679,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49909255" visible="true" weight="0.2012113" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49909255" visible="true" weight="0.2761982" />
       <window_info id="Structure" order="1" sideWeight="0.50259066" side_tool="true" weight="0.2615694" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -799,7 +725,7 @@
       <window_info anchor="right" id="Database" order="8" weight="0.17294751" />
       <window_info anchor="right" id="Bean Validation" order="9" sideWeight="0.49853373" weight="0.32862905" />
       <window_info anchor="right" id="SciView" order="10" sideWeight="0.49853373" weight="0.32997987" />
-      <window_info anchor="right" id="JRebel Setup Guide" order="11" sideWeight="0.6202346" side_tool="true" weight="0.32772544" />
+      <window_info anchor="right" id="JRebel Setup Guide" order="11" sideWeight="0.6202346" side_tool="true" weight="0.32737613" />
       <window_info anchor="right" id="Mybatis datasource" order="12" sideWeight="0.5014663" side_tool="true" weight="0.32839838" />
       <window_info anchor="right" id="aiXcoder" order="13" side_tool="true" />
     </layout>
@@ -910,10 +836,10 @@
     <MESSAGE value="新增" />
     <MESSAGE value="优化页面" />
     <MESSAGE value="新增查询页面" />
-    <MESSAGE value="优化" />
     <MESSAGE value="代码优化" />
     <MESSAGE value="sql优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="sql优化" />
+    <MESSAGE value="优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -938,16 +864,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/appMonitor/service/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-spring/1.4.0/shiro-spring-1.4.0.pom">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
@@ -1153,16 +1069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/appMonitor/service/Impl/ApplicationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="104" column="29" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.5.RELEASE/spring-webmvc-5.0.5.RELEASE-sources.jar!/org/springframework/web/servlet/view/UrlBasedViewResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -1324,11 +1230,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/app/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="23">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AppUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/appMonitor/service/Impl/ApplicationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="124" column="7" lean-forward="true" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
