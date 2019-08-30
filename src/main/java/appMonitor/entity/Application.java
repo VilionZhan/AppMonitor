@@ -1,11 +1,8 @@
 package appMonitor.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table(name="APPLICATION")
+@Table
 public class  Application {
 	/**
 	 * 主键

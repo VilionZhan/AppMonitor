@@ -205,4 +205,27 @@
       </if>
     </trim>
   </insert>
+
+
+  <select id="queryApplication" parameterType="appMonitor.domain.AppRegister" resultMap="BaseResultMap">
+    select *
+      from app_register
+         where 1=1
+           <!-- <if test="appAddress != null">
+              and app_address = #{appAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="appName != null">
+              and  app_name = #{appName,jdbcType=VARCHAR}
+            </if>
+            <if test="appPort != null">
+              and app_port = #{appPort,jdbcType=INTEGER}
+            </if>
+            <if test="appRegdate != null">
+              and app_regdate = #{appRegdate,jdbcType=VARCHAR}
+            </if>
+            <if test="appStatus != null">
+              and app_status = #{appStatus,jdbcType=INTEGER}
+            </if>-->
+  </select>
+
 </mapper>

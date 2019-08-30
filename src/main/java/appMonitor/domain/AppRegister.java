@@ -1,5 +1,7 @@
 package appMonitor.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @author zhangdongdong
  * @date 2019/3/3023:22
  */
+@Component
 public class AppRegister implements Serializable {
     private String appAddress;
 

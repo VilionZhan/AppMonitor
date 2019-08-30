@@ -29,7 +29,6 @@ spring:
     servlet:
       content-type: text/html
 #数据源配置
-spring:
   datasource:
     url: jdbc:mysql://localhost:3306/appMonitor
     driver-class-name: com.mysql.jdbc.Driver

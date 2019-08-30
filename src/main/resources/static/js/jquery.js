@@ -4078,7 +4078,7 @@ function safeActiveElement() {
 }
 
 /*
- * Helper functions for managing events -- not part of the public interface.
+ * Helper functions for managing events -- not part of the public inter.
  * Props to Dean Edwards' addEvent library for many of the ideas.
  */
 jQuery.event = {

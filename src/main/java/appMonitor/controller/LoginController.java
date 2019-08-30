@@ -1,6 +1,6 @@
 package appMonitor.controller;
 
-import appMonitor.service.LoginService;
+import appMonitor.service.Impl.LoginServiceImpl;
 import appMonitor.shiro.domain.ResultDomain;
 import appMonitor.shiro.domain.User;
 import org.apache.commons.logging.Log;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,7 +28,7 @@ public class LoginController {
 	private  final Log log = LogFactory.getLog(LoginController.class);
 
 	@Autowired
-	private LoginService loginService;
+	private LoginServiceImpl loginService;
 
 	/**
 	 * 登录页面 login.html
@@ -38,14 +37,27 @@ public class LoginController {
     public String login() {
         return "login";
     }
-
+    
+    /**
+     * 进入系统主页
+     * @param Model model
+     * @return url
+     */
+    @RequestMapping("/main")
+    public String loginSystem(Model model){
+        //登录成后，即可通过Subject获取登录的用户信息
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        //给返回页面封装对象数据
+        model.addAttribute("user", user);
+        return "app/main";
+    }
+    
     /**
      * 登录认证 shiro
      * @param username
      * @param password
      * @return
      */
-
     @PostMapping("/login")
     @ResponseBody
     public ResultDomain login(String username, String password) {
@@ -65,20 +77,7 @@ public class LoginController {
             return ResultDomain.error(e.getMessage());
         }
     }
-
-    /**
-     * 进入系统主页
-     * @param Model model
-     * @return url
-     */
-    @RequestMapping("/main")
-    public String loginSystem(Model model){
-        //登录成后，即可通过Subject获取登录的用户信息
-        User user = (User) SecurityUtils.getSubject().getPrincipal();
-        //给返回页面封装对象数据
-        model.addAttribute("user", user);
-        return "app/main";
-    }
+    
 
     /**
      * 用户退出
@@ -89,7 +88,7 @@ public class LoginController {
     public String logout(HttpServletRequest request){
         SecurityUtils.getSubject().logout();
         //跳转到/login
-        return InternalResourceViewResolver.REDIRECT_URL_PREFIX + "/login";
+        return "/login";
     }
 
 }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>appMonitor-search</title>
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{css/main.css}" rel="stylesheet"/>
+    <link th:href="@{css/jquery-ui.css}" rel="stylesheet"/>
+    <script th:src="@{js/jquery.min.js}"></script>
+    <script th:src="@{js/bootstrap.min.js}"></script>
+</head>
+</head>
+<body>
+<div id="application">
+    <div style="padding-top: 10px">
+            <span style="font-size: 30px;color: #5cb85c">
+                应用信息管理
+            </span>
+    </div>
+    <br>  <br>
+    <div class="applicationInstall">
+        <form id="appregisterinfo" >
+            <table class="table table-striped">
+                <tr >
+                    <td><label style="padding-top: 8px;font-size: 15px">应用名称</label></td>
+                    <td><input onblur="needinput()" class="form-control" placeholder="请输入应用名称"  type="text" id="applicationname" style="border-radius: 1px;"/></td>
+                    <td><label  style="padding-left: 20px;padding-top: 8px;font-size: 15px">应用ip地址</label></td>
+                    <td><input onblur="needinputip()" class="form-control" placeholder="请输入应用ip地址" type="text"  id="applicationip" style="border-radius: 1px;"/></td>
+                    <td><label style="padding-left: 20px;padding-top: 8px;font-size: 15px ">应用端口</label></td>
+                    <td><input onblur="needinputport()" class="form-control" placeholder="请输入应用端口" type="text"  id="applicationport" style="border-radius: 1px;"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div style="font-size: 15px;color: #adadad"  th:fragment="appregisters" id="appregisters"  th:if="${appregister} ne null">
+    <div><span th:text="${title}" ></span></div>
+    <table border="1" class="table table-striped" style="background-color:#cccccc">
+        <thead>
+        <tr>
+            <td>应用名称</td>
+            <td>IP地址</td>
+            <td>端口号</td>
+            <td>注册时间</td>
+            <td>应用状态</td>
+        </tr>
+        </thead>
+        <tbody style="background-color: #d5d5d5">
+        <tr th:each="app: ${appregister}" >
+            <td th:text="${app.appName}"></td>
+            <td th:text="${app.appAddress}"></td>
+            <td th:text="${app.appPort}"></td>
+            <td th:text="${app.appRegdate}"></td>
+            <td th:switch="${app.appStatus}">
+                <span th:case="0">生效</span>
+                <span th:case="1">失效</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--    <div th:fragment="table_refresh" id="table_refresh">
+        <div th:replace="app/queryresultpage :: queryresultpage"></div>
+    </div>-->
+<br><br><br><br>
+<div class="registerApp" style="padding-left: 450px">
+    <button onclick="searchAppInfo()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">查询</button>
+</div>
+
+<script type="text/javascript">
+
+    function searchAppInfo() {
+        var appname = $("#applicationname").val();
+        var applicationip = $("#applicationip").val();
+        var applicationport = $("#applicationport").val();
+
+        //组装查询数据
+        var appregister = {
+            "appName":appname,
+            "appAddress":applicationip,
+            "appPort":applicationport
+        }
+        $.ajax({
+            async:false,
+            type:"POST",
+            url:'main/QueryApplication',
+            dataType:"json",
+            data: JSON.stringify(appregister),
+            contentType:'application/json',
+            success : function(data) {
+                alert("查询cg！");
+                console.info(11111111111);
+                $('#appregister').html(data);
+            },
+            error : function(data) {
+                $('#appregister').html(data);
+                console.info(22222222222);
+                /*alert("查询失败！");*/
+            }
+        })
+        /* $('#appregisters').load("main/QueryApplication'");*/
+
+    }
+</script>
+</body>
+</html>

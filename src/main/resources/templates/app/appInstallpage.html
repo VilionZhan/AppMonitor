@@ -39,9 +39,7 @@
             <button onclick="searchAppInfo()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">查询</button>
             <button onclick="registerApp()" type="button" class="btn btn-default" style="text-align: center;background-color: #88A4C8">注册</button>
         </div>
-    </div>
-    <script type="text/javascript">
-
+        <script>
         //服务注册
         function registerApp () {
             //空值校验
@@ -64,7 +62,7 @@
                 return;
             }
             //组装数据
-            var addInfo = {
+            var appregiste = {
                 "applicationName":applicationname,
                 "applicationIp":applicationip,
                 "applicationPort":applicationport
@@ -95,18 +93,6 @@
             var appname = $("#applicationname").val();
             var applicationip = $("#applicationip").val();
             var applicationport = $("#applicationport").val();
-            if (appname=="") {
-                alert("应用名称为空，请重新输入");
-                return false;
-            }
-            if (applicationip=="") {
-                alert("ip地址为空，请重新输入");
-                return;
-            }
-            if (applicationport=="") {
-                alert("端口号为空，请重新输入");
-                return;
-            }
 
             var applicationInfo = {
                 "applicationName":appname,
@@ -116,13 +102,11 @@
             $.ajax({
                 async:false,
                 type:"POST",
-                url:'main/QueryApplication',
+                url:'main/QueryApplicationForAll',
                 dataType:"text",
                 data: JSON.stringify(applicationInfo),
                 contentType:'application/json',
                 success : function(data) {
-                    alert(data);
-                    alert("成功！");
                 },
                 error : function(data) {
                     alert("查询失败！");
